@@ -9,7 +9,12 @@ class CommentsController < ApplicationController
 
     # POST /comments
     def create
-        @comment = Comment.new(comment_params)
+        @comment = Comment.new(
+            text: comment_params[:text],
+            author: "Admin",
+            date: Time.current,
+            likes: 0
+        )
         if @comment.save
             render json: @comment, status: :created, location: @comment
         else
@@ -39,6 +44,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-        params.require(:comment).permit(:author, :text, :date, :likes)
+        params.require(:comment).permit(:text)
     end
 end
