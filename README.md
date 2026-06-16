@@ -7,11 +7,11 @@ This app supports comment add, edit, display, and delete capabilities.
 **Prerequisites**
 
 Make sure you have the following installed:
-- Ruby (check using ruby -v)
-- Rails (check using rails -v)
-- Bundler (check using bundle -v
-- Node (check using node -v)
-- npm (check using npm -v)
+- Ruby (check using ruby -v) https://www.ruby-lang.org/en/downloads/
+- Rails (check using rails -v) https://guides.rubyonrails.org/install_ruby_on_rails.html
+- Bundler (check using bundle -v https://bundler.io/
+- Node (check using node -v) https://nodejs.org/en/download
+- npm (check using npm -v) https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 **Setup**
 
