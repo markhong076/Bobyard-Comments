@@ -30,9 +30,14 @@ function CommentAdder({ onAdd }: CommentAdderProps) {
 
     return (
         <>
-            <button className="add-comment-button" onClick={() => setShowModal(true)}>
-                Add Comment
+            <button 
+                className="floating-add-button"
+                onClick={() => setShowModal(true)}
+                aria-label="Add Comment"
+            >
+                +
             </button>
+
 
             {showModal && (
                 <div className="modal-backdrop">
