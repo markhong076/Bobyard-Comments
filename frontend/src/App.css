@@ -96,19 +96,58 @@ textarea:focus {
   margin: 12px 0 0;
 }
 
-/* Add comment box */
+/* Add comment modal */
 
-.comment-adder {
-  background: white;
-  border: 1px solid #e6eaf2;
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.06);
+.open-modal-button {
   margin-bottom: 20px;
-  padding: 18px;
 }
 
-.comment-adder button {
-  margin-top: 12px;
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(15, 23, 42, 0.45);
+  padding: 16px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 460px;
+
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+  padding: 24px;
+}
+
+.modal h3 {
+  font-size: 22px;
+  margin: 0 0 8px;
+}
+
+.modal h2 {
+  color: black;
+}
+
+.modal p {
+  color: #667085;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.modal textarea {
+  margin-bottom: 16px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 /* Comment list */

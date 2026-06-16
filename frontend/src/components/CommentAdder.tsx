@@ -5,6 +5,7 @@ type CommentAdderProps = {
 };
 
 function CommentAdder({ onAdd }: CommentAdderProps) {
+    const [showModal, setShowModal] = useState(false);
     const [text, setText] = useState("");
     const [isAdding, setIsAdding] = useState(false);
 
@@ -16,23 +17,53 @@ function CommentAdder({ onAdd }: CommentAdderProps) {
             setIsAdding(true);
             await onAdd(trimmedText);
             setText("");
+            setShowModal(false);
         } finally {
             setIsAdding(false);
         }
     };
 
-    return (
-        <section className="comment-adder">
-            <textarea
-                value={text}
-                onChange={(event) => setText(event.target.value)}
-                placeholder="Write a comment..."
-            />
+    const handleCancel = () => {
+        setText("");
+        setShowModal(false);
+    }
 
-            <button onClick={handleAdd} disabled={isAdding}>
-                {isAdding ? "Adding..." : "Add Comment"}
+    return (
+        <>
+            <button className="add-comment-button" onClick={() => setShowModal(true)}>
+                Add Comment
             </button>
-        </section>
+
+            {showModal && (
+                <div className="modal-backdrop">
+                    <div className="modal">
+                        <h2>Add a Comment</h2>
+                        <textarea
+                            value={text}
+                            onChange={(e) => setText(e.target.value)}
+                            placeholder="Write your comment here..."
+                        />
+
+                        <div className="modal-actions">
+                            <button 
+                                className="cancel-button"
+                                onClick={handleCancel}
+                                disabled={isAdding}
+                            >
+                                Cancel
+                            </button>
+                            <button 
+                                className="save-button"
+                                onClick={handleAdd}
+                                disabled={isAdding}
+                            >
+                                {isAdding ? "Adding..." : "Add Comment"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+             )}
+        </>
     );
 }
 
